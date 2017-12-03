@@ -1,0 +1,10 @@
+Package: histogrampackage
+Type: Package
+Title: Calculates histogram and perform advanched operations with them
+Version: 0.1.0
+Author: Serhii Soboliev
+Maintainer: Serhii Soboliev <sergiy.sobolev@gmail.com>
+Description: Calculates histogram of different data(bitmap, matrixes, arrays, lists and so on), perform changing of hisorgam(adding, substraction)
+License: Free
+Encoding: UTF-8
+LazyData: true
