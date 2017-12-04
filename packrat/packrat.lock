@@ -6,6 +6,11 @@ Repos: BioCsoft=https://bioconductor.org/packages/3.6/bioc,
     BioCexp=https://bioconductor.org/packages/3.6/data/experiment,
     CRAN=https://cran.rstudio.com/
 
+Package: RUnit
+Source: CRAN
+Version: 0.4.31
+Hash: 62eb28673740eb6984f134cb2c179c55
+
 Package: bmp
 Source: CRAN
 Version: 0.3
