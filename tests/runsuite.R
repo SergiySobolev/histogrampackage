@@ -9,3 +9,4 @@ test.suite <- defineTestSuite("histogram",
 test.result <- runTestSuite(test.suite)
 
 printTextProtocol(test.result)
+
