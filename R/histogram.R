@@ -11,3 +11,14 @@ buildHistogram <- function(d) {
   y <- list(h=h, size=s)
   return (y)
 }
+
+addToHistogram <- function(hs, arr) {
+  h <- hs$h;
+  s <- hs$size
+  for(i in 1:length(arr)){
+    h[i]<- h[i]+1
+    s <- s+1
+  }
+  newhs <- list(h=h, size=s)
+  return(newhs)
+}

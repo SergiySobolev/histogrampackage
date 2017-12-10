@@ -2,7 +2,7 @@ library('RUnit')
 
 source(file = "R/histogram.R")
 
-test.1 <- function() {
+test.buildhistogram.1 <- function() {
   m <- matrix(1:9,nrow = 3, byrow = TRUE)
   a <- buildHistogram1(d = m)
   checkEquals(a$size,9)
@@ -17,9 +17,20 @@ test.1 <- function() {
   checkEquals(a$h[9],1)
 }
 
-test.2 <- function() {
+test.buildhistogram.2 <- function() {
   m <- matrix(1,nrow = 3,ncol = 3)
   a <- buildHistogram1(d = m)
   checkEquals(a$size,9)
   checkEquals(a$h[1],9)
+}
+
+test.buildhistogram.and.add.array <- function () {
+  m <- matrix(1:9,nrow = 3, byrow = TRUE)
+  h1 <- buildHistogram1(d = m)
+  v <- 1:3
+  h2 <- addToHistogram(h1,v)
+  checkEquals(h2$size, 12)
+  checkEquals(h2$h[1], 2)
+  checkEquals(h2$h[2], 2)
+  checkEquals(h2$h[3], 2)
 }
