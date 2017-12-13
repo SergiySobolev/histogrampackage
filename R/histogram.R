@@ -15,9 +15,29 @@ buildHistogram <- function(d) {
 addToHistogram <- function(hs, arr) {
   h <- hs$h;
   s <- hs$size
-  for(i in 1:length(arr)){
-    h[i]<- h[i]+1
+  for(i in 1:length(arr)) {
+    index <- arr[i]
+    h[index]<- h[index]+1
     s <- s+1
+  }
+  newhs <- list(h=h, size=s)
+  return(newhs)
+}
+
+removeFromHistogram <- function(hs, arr) {
+  h <- hs$h;
+  s <- hs$size
+  for(i in 1:length(arr)) {
+    index <- arr[i]
+    h[index] <- h[index] - 1
+    if(h[index] < 0 ) {
+      stop(h[index] + " not present in histogram")
+    }
+    s <- s - 1
+    if(s < 0) {
+      stop("Histogram size can't be less than zero")
+    }
+
   }
   newhs <- list(h=h, size=s)
   return(newhs)

@@ -4,7 +4,7 @@ source(file = "R/histogram.R")
 
 test.buildhistogram.1 <- function() {
   m <- matrix(1:9,nrow = 3, byrow = TRUE)
-  a <- buildHistogram1(d = m)
+  a <- buildHistogram(d = m)
   checkEquals(a$size,9)
   checkEquals(a$h[1],1)
   checkEquals(a$h[2],1)
@@ -19,18 +19,36 @@ test.buildhistogram.1 <- function() {
 
 test.buildhistogram.2 <- function() {
   m <- matrix(1,nrow = 3,ncol = 3)
-  a <- buildHistogram1(d = m)
+  a <- buildHistogram(d = m)
   checkEquals(a$size,9)
   checkEquals(a$h[1],9)
 }
 
 test.buildhistogram.and.add.array <- function () {
   m <- matrix(1:9,nrow = 3, byrow = TRUE)
-  h1 <- buildHistogram1(d = m)
+  h1 <- buildHistogram(d = m)
   v <- 1:3
   h2 <- addToHistogram(h1,v)
   checkEquals(h2$size, 12)
   checkEquals(h2$h[1], 2)
   checkEquals(h2$h[2], 2)
   checkEquals(h2$h[3], 2)
+}
+
+test.buildhistogram.and.remove.array <- function () {
+  m <- matrix(1:9,nrow = 3, byrow = TRUE)
+  h1 <- buildHistogram(d = m)
+  v <- 1:3
+  h2 <- removeFromHistogram(h1,v)
+  checkEquals(h2$size, 6)
+  checkEquals(h2$h[1], 0)
+  checkEquals(h2$h[2], 0)
+  checkEquals(h2$h[3], 0)
+}
+
+test.buildhistogram.and.remove.array.and.catch.error <- function () {
+  m <- matrix(1:9,nrow = 3, byrow = TRUE)
+  h1 <- buildHistogram(d = m)
+  v <- 10:12
+  checkException(removeFromHistogram(h1,v))
 }
