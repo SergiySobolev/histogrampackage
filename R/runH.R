@@ -1,6 +1,5 @@
 source(file = "R/histogram.R")
 
-m <- matrix(1:9,nrow = 3, byrow = TRUE)
+m <- matrix( c(10,20,20,20,30,30,40,50,50,50,50,50),nrow = 3, byrow = TRUE)
 h1 <- buildHistogram(d = m)
-v <- 10:12
-h2 <- removeFromHistogram(h1,v)
+visualize(h1)

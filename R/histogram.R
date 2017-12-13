@@ -31,7 +31,7 @@ removeFromHistogram <- function(hs, arr) {
     index <- arr[i]
     h[index] <- h[index] - 1
     if(h[index] < 0 ) {
-      stop(h[index] + " not present in histogram")
+      stop(paste(c(index, " not present in histogram"), collapse = " "))
     }
     s <- s - 1
     if(s < 0) {
@@ -41,4 +41,9 @@ removeFromHistogram <- function(hs, arr) {
   }
   newhs <- list(h=h, size=s)
   return(newhs)
+}
+
+visualize <- function(hs) {
+  arr <- hs$h
+  barplot(arr)
 }
