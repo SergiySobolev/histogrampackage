@@ -24,6 +24,12 @@ addToHistogram <- function(hs, arr) {
   return(newhs)
 }
 
+addPixelToHistogram <- function(hs, p) {
+  hs$h[p] <- hs$h[p] + 1
+  hs$size <- hs$size + 1
+  return(hs)
+}
+
 removeFromHistogram <- function(hs, arr) {
   h <- hs$h;
   s <- hs$size

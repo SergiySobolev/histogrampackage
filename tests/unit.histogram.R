@@ -52,3 +52,14 @@ test.buildhistogram.and.remove.array.and.catch.error <- function () {
   v <- 10:12
   checkException(removeFromHistogram(h1,v))
 }
+
+test.add.pixel.to.histogram <- function () {
+  m <- matrix(1:9,nrow = 3, byrow = TRUE)
+  h1 <- buildHistogram(d = m)
+  p <- 3
+  h2 <- addPixelToHistogram(h1,p)
+  checkEquals(h2$size, 10)
+  checkEquals(h2$h[2], 1)
+  checkEquals(h2$h[3], 2)
+  checkEquals(h2$h[4], 1)
+}
