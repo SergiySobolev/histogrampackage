@@ -49,6 +49,17 @@ removeFromHistogram <- function(hs, arr) {
   return(newhs)
 }
 
+hmedian <- function(hs) {
+  c <- hs$size %/% 2 + 1
+  ac <- 0
+  curIndex <- 0
+  while(ac < c) {
+    curIndex <- curIndex + 1
+    ac <- ac + hs$h[curIndex]
+  }
+  return(curIndex)
+}
+
 visualize <- function(hs) {
   arr <- hs$h
   barplot(arr)

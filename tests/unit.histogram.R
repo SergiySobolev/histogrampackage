@@ -63,3 +63,27 @@ test.add.pixel.to.histogram <- function () {
   checkEquals(h2$h[3], 2)
   checkEquals(h2$h[4], 1)
 }
+
+test.median.1 <- function() {
+  m <- matrix(1:9,nrow = 3, byrow = TRUE)
+  h <- buildHistogram(d = m)
+  checkEquals(hmedian(h),5)
+}
+
+test.median.2 <- function() {
+  m <- matrix(c(1,2,2,3,4,9) ,nrow = 3, byrow = TRUE)
+  h <- buildHistogram(d = m)
+  checkEquals(hmedian(h), 3)
+}
+
+test.median.3 <- function() {
+  m <- matrix(c(1,2,2,2,4,9) ,nrow = 3, byrow = TRUE)
+  h <- buildHistogram(d = m)
+  checkEquals(hmedian(h), 2)
+}
+
+test.median.4 <- function() {
+  m <- matrix(c(10,10,10,10,20,20) ,nrow = 3, byrow = TRUE)
+  h <- buildHistogram(d = m)
+  checkEquals(hmedian(h), 10)
+}
