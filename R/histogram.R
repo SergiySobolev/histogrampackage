@@ -49,6 +49,15 @@ removeFromHistogram <- function(hs, arr) {
   return(newhs)
 }
 
+removePixelFromHistogram <- function(hs,p) {
+  if(hs$h[p] < 1) {
+    stop("Histogram size can't be less than zero")
+  }
+  hs$h[p] <- hs$h[p] - 1
+  hs$size <- hs$size - 1
+  return(hs)
+}
+
 hmedian <- function(hs) {
   c <- hs$size %/% 2 + 1
   ac <- 0

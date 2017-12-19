@@ -87,3 +87,12 @@ test.median.4 <- function() {
   h <- buildHistogram(d = m)
   checkEquals(hmedian(h), 10)
 }
+
+test.add.pixel.to.histogram <- function () {
+  m <- matrix(1:9,nrow = 3, byrow = TRUE)
+  h1 <- buildHistogram(d = m)
+  h2 <- removePixelFromHistogram(h1,3)
+  checkEquals(h2$size, 8)
+  checkEquals(h2$h[3], 0)
+  checkException(removePixelFromHistogram(h2,3))
+}
